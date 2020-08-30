@@ -3,6 +3,8 @@ package com.example.parkinglotdemo.service.impl;
 import com.example.parkinglotdemo.entity.ParkingLot;
 import com.example.parkinglotdemo.exception.ParkingLotNotFoundException;
 import com.example.parkinglotdemo.repository.ParingLotRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -40,5 +42,10 @@ public class ParkingLotServiceImpl implements ParkingLotService {
         paringLotRepository.findById(id).orElseThrow(ParkingLotNotFoundException::new);
         parkingLot.setId(id);
         paringLotRepository.save(parkingLot);
+    }
+
+    @Override
+    public Page<ParkingLot> getParkingLotsByPage(Pageable pageable) {
+        return paringLotRepository.findAll(pageable);
     }
 }

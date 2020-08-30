@@ -2,6 +2,9 @@ package com.example.parkinglotdemo.controller;
 
 import com.example.parkinglotdemo.entity.ParkingLot;
 import com.example.parkinglotdemo.service.impl.ParkingLotService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,9 +19,17 @@ public class parkingLotController {
     @Resource
     ParkingLotService parkingLotService;
 
+//    @GetMapping
+//    public List<ParkingLot> getParkingLots() {
+//        return parkingLotService.getParkingLots();
+//    }
     @GetMapping
-    public List<ParkingLot> getParkingLots() {
-        return parkingLotService.getParkingLots();
+    public Page<ParkingLot> getParkingLotsByPage(@PageableDefault(size = 4) Pageable pageable,
+                                                 @RequestParam(defaultValue = "false") boolean unpaged) {
+        if (unpaged) {
+            return parkingLotService.getParkingLotsByPage(Pageable.unpaged());
+        }
+        return parkingLotService.getParkingLotsByPage(pageable);
     }
 
     @GetMapping("/{name}")
