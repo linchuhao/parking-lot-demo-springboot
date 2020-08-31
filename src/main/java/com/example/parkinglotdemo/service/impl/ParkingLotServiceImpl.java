@@ -13,39 +13,34 @@ import java.util.List;
 @Service
 public class ParkingLotServiceImpl implements ParkingLotService {
 
-    @Resource
-    private ParingLotRepository paringLotRepository;
+  @Resource
+  private ParingLotRepository paringLotRepository;
 
-    @Override
-    public List<ParkingLot> getParkingLots() {
-        return paringLotRepository.findAll();
-    }
+  @Override
+  public Page<ParkingLot> getParkingLotsByPage(Pageable pageable, String name) {
+    return paringLotRepository.findAllByNameLike(pageable, "%" + name + "%");
+  }
 
-    @Override
-    public List<ParkingLot> getParkingLots(String name) {
-        return paringLotRepository.findAllByNameLike("%" + name + "%");
-    }
+  @Override
+  public void deleteParkingLot(int id) {
+    paringLotRepository.findById(id).orElseThrow(ParkingLotNotFoundException::new);
+    paringLotRepository.deleteById(id);
+  }
 
-    @Override
-    public void deleteParkingLot(int id) {
-        paringLotRepository.findById(id).orElseThrow(ParkingLotNotFoundException::new);
-        paringLotRepository.deleteById(id);
-    }
+  @Override
+  public void addParkingLot(ParkingLot parkingLot) {
+    paringLotRepository.save(parkingLot);
+  }
 
-    @Override
-    public void addParkingLot(ParkingLot parkingLot) {
-        paringLotRepository.save(parkingLot);
-    }
+  @Override
+  public void updateParkingLot(int id, ParkingLot parkingLot) {
+    paringLotRepository.findById(id).orElseThrow(ParkingLotNotFoundException::new);
+    parkingLot.setId(id);
+    paringLotRepository.save(parkingLot);
+  }
 
-    @Override
-    public void updateParkingLot(int id, ParkingLot parkingLot) {
-        paringLotRepository.findById(id).orElseThrow(ParkingLotNotFoundException::new);
-        parkingLot.setId(id);
-        paringLotRepository.save(parkingLot);
-    }
-
-    @Override
-    public Page<ParkingLot> getParkingLotsByPage(Pageable pageable) {
-        return paringLotRepository.findAll(pageable);
-    }
+  @Override
+  public Page<ParkingLot> getParkingLotsByPage(Pageable pageable) {
+    return paringLotRepository.findAll(pageable);
+  }
 }

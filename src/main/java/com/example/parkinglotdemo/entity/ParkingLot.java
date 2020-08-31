@@ -5,55 +5,56 @@ import javax.persistence.*;
 @Entity
 @Table(name = "parking_lot")
 public class ParkingLot {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
 
-    private String name;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private int id;
 
-    private String address;
+  private String name;
 
-    private int parkingSpaceCapacity;
+  private String address;
 
-    private int parkingSpaceRemainder;
+  private int parkingSpaceCapacity;
 
-    public int getId() {
-        return id;
-    }
+  private int parkingSpaceRemainder;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+  public int getId() {
+    return id;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public void setId(int id) {
+    this.id = id;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public String getAddress() {
-        return address;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
+  public String getAddress() {
+    return address;
+  }
 
-    public int getParkingSpaceCapacity() {
-        return parkingSpaceCapacity;
-    }
+  public void setAddress(String address) {
+    this.address = address;
+  }
 
-    public void setParkingSpaceCapacity(int parkingSpaceCapacity) {
-        this.parkingSpaceCapacity = parkingSpaceCapacity;
-    }
+  public int getParkingSpaceCapacity() {
+    return parkingSpaceCapacity;
+  }
 
-    public int getParkingSpaceRemainder() {
-        return parkingSpaceRemainder;
-    }
+  public void setParkingSpaceCapacity(int parkingSpaceCapacity) {
+    this.parkingSpaceCapacity = parkingSpaceCapacity;
+  }
 
-    public void setParkingSpaceRemainder(int parkingSpaceRemainder) {
-        this.parkingSpaceRemainder = parkingSpaceRemainder;
-    }
+  public int getParkingSpaceRemainder() {
+    return parkingSpaceRemainder;
+  }
+
+  public void setParkingSpaceRemainder(int parkingSpaceRemainder) {
+    this.parkingSpaceRemainder = parkingSpaceRemainder;
+  }
 }

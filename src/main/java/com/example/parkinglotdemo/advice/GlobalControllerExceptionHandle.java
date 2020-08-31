@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ResponseBody
 public class GlobalControllerExceptionHandle {
 
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(ParkingLotNotFoundException.class)
-    public String ParkingLotNotFoundException(ParkingLotNotFoundException exception) {
-        return exception.getMessage();
-    }
+  @ResponseStatus(HttpStatus.BAD_REQUEST)
+  @ExceptionHandler(ParkingLotNotFoundException.class)
+  public String ParkingLotNotFoundException(ParkingLotNotFoundException exception) {
+    return exception.getMessage();
+  }
 }

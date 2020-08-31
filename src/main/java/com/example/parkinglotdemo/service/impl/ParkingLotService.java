@@ -8,15 +8,13 @@ import java.util.List;
 
 public interface ParkingLotService {
 
-    List<ParkingLot> getParkingLots();
+  Page<ParkingLot> getParkingLotsByPage(Pageable pageable, String name);
 
-    List<ParkingLot>  getParkingLots(String name);
+  void deleteParkingLot(int id);
 
-    void deleteParkingLot(int id);
+  void addParkingLot(ParkingLot parkingLot);
 
-    void addParkingLot(ParkingLot parkingLot);
+  void updateParkingLot(int id, ParkingLot parkingLot);
 
-    void updateParkingLot(int id, ParkingLot parkingLot);
-
-    Page<ParkingLot> getParkingLotsByPage(Pageable pageable);
+  Page<ParkingLot> getParkingLotsByPage(Pageable pageable);
 }
