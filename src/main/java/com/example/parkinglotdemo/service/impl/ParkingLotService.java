@@ -1,5 +1,6 @@
 package com.example.parkinglotdemo.service.impl;
 
+import com.example.parkinglotdemo.dto.ParkingLotSocketMessage;
 import com.example.parkinglotdemo.entity.ParkingLot;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,4 +18,6 @@ public interface ParkingLotService {
   void updateParkingLot(int id, ParkingLot parkingLot);
 
   Page<ParkingLot> getParkingLotsByPage(Pageable pageable);
+
+  ParkingLotSocketMessage getParkingLotMessageInOneHour();
 }
