@@ -1,7 +1,5 @@
 package com.example.parkinglotdemo.websocket;
 
-import org.springframework.stereotype.Component;
-
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
@@ -11,6 +9,7 @@ import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
+import org.springframework.stereotype.Component;
 
 @ServerEndpoint("/websocket")
 @Component

@@ -8,14 +8,13 @@ import com.example.parkinglotdemo.entity.ParkingLot;
 import com.example.parkinglotdemo.exception.ParkingLotNotFoundException;
 import com.example.parkinglotdemo.repository.ParingLotRepository;
 import com.example.parkinglotdemo.websocket.WebSocketServer;
+import java.util.List;
 import java.util.stream.Collectors;
+import javax.annotation.Resource;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
-import java.util.List;
 
 @Service
 public class ParkingLotServiceImpl implements ParkingLotService {
